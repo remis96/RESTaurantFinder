@@ -1,62 +1,148 @@
 package com.example.restaurantfinder;
 
+
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.restaurantfinder.model.pojo.Datum;
+import com.example.restaurantfinder.model.pojo.MultipleResource;
+import com.example.restaurantfinder.model.pojo.User;
+import com.example.restaurantfinder.model.pojo.UserList;
+import com.example.restaurantfinder.utils.APIClient;
+import com.example.restaurantfinder.utils.APIInterface;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String URL = "http://10.0.2.2:8080/name";
-    private String str;
-    private TextView textView;
+    TextView responseText;
+    APIInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.text);
+        responseText = findViewById(R.id.responseText);
+        apiInterface = APIClient.getClient().create(APIInterface.class);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("sucess", "onResponse: " + response);
-                        str = response;
-                    }
-                }, new Response.ErrorListener() {
+
+        /**
+         GET List Resources
+         **/
+        Call<MultipleResource> call = apiInterface.doGetListResources();
+        call.enqueue(new Callback<MultipleResource>() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("fuck", "FUCK");
+            public void onResponse(Call<MultipleResource> call, Response<MultipleResource> response) {
+
+
+                Log.d("TAG", response.code() + "");
+
+                String displayResponse = "";
+
+                MultipleResource resource = response.body();
+                Integer text = resource.page;
+                Integer total = resource.total;
+                Integer totalPages = resource.totalPages;
+                List<Datum> datumList = resource.data;
+
+                displayResponse += text + " Page\n" + total + " Total\n" + totalPages + " Total Pages\n";
+
+                for (Datum datum : datumList) {
+                    displayResponse += datum.id + " " + datum.name + " " + datum.pantoneValue + " " + datum.year + "\n";
+                }
+
+                responseText.setText(displayResponse);
+
             }
 
-        }) {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
-                //headers.put("Content-Type", "application/json");
-                headers.put("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaWNoYWwiLCJleHAiOjE1ODE0NzAwMzEsImlhdCI6MTU4MTQ1MjAzMX0.59mBNg7Oiu561sQIxO3mEDcrAbBpi2uaMLxTWQkgnxK6HuZ9kve_Z31wVm20Rxvrh14APh_93WQnHK9JSR7-DA");
-                return headers;
+            public void onFailure(Call<MultipleResource> call, Throwable t) {
+                call.cancel();
             }
-        };
+        });
 
-        requestQueue.add(stringRequest);
-        textView.setText(str);
+        /**
+         Create new user
+         **/
+        User user = new User("morpheus", "leader");
+        Call<User> call1 = apiInterface.createUser(user);
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user1 = response.body();
+
+                Toast.makeText(getApplicationContext(), user1.name + " " + user1.job + " " + user1.id + " " + user1.createdAt, Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                call.cancel();
+            }
+        });
+
+        /**
+         GET List Users
+         **/
+        Call<UserList> call2 = apiInterface.doGetUserList("2");
+        call2.enqueue(new Callback<UserList>() {
+            @Override
+            public void onResponse(Call<UserList> call, Response<UserList> response) {
+
+                UserList userList = response.body();
+                Integer text = userList.page;
+                Integer total = userList.total;
+                Integer totalPages = userList.totalPages;
+                List<UserList.Datum> datumList = userList.data;
+                Toast.makeText(getApplicationContext(), text + " page\n" + total + " total\n" + totalPages + " totalPages\n", Toast.LENGTH_SHORT).show();
+
+                for (UserList.Datum datum : datumList) {
+                    Toast.makeText(getApplicationContext(), "id : " + datum.id + " name: " + datum.first_name + " " + datum.last_name + " avatar: " + datum.avatar, Toast.LENGTH_SHORT).show();
+                }
 
 
+            }
+
+            @Override
+            public void onFailure(Call<UserList> call, Throwable t) {
+                call.cancel();
+            }
+        });
+
+
+        /**
+         POST name and job Url encoded.
+         **/
+        Call<UserList> call3 = apiInterface.doCreateUserWithField("morpheus", "leader");
+        call3.enqueue(new Callback<UserList>() {
+            @Override
+            public void onResponse(Call<UserList> call, Response<UserList> response) {
+                UserList userList = response.body();
+                Integer text = userList.page;
+                Integer total = userList.total;
+                Integer totalPages = userList.totalPages;
+                List<UserList.Datum> datumList = userList.data;
+                Toast.makeText(getApplicationContext(), text + " page\n" + total + " total\n" + totalPages + " totalPages\n", Toast.LENGTH_SHORT).show();
+
+                for (UserList.Datum datum : datumList) {
+                    Toast.makeText(getApplicationContext(), "id : " + datum.id + " name: " + datum.first_name + " " + datum.last_name + " avatar: " + datum.avatar, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UserList> call, Throwable t) {
+                call.cancel();
+            }
+        });
 
     }
 }
