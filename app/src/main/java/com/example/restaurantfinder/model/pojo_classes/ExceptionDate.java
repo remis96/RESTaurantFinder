@@ -1,24 +1,44 @@
-package com.example.restaurantfinder.model;
+package com.example.restaurantfinder.model.pojo_classes;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class ExceptionDate {
 
+    @SerializedName("id")
+    @Expose(serialize = false)
+    private Integer id;
+
+    @SerializedName("dayOfMonth")
     private Integer dayOfMonth;
 
+    @SerializedName("monthOfYear")
     private Integer monthOfYear;
 
+    @SerializedName("year")
     private Integer year;
 
+    @SerializedName("openingHour")
     private Integer openingHour;
 
+    @SerializedName("openingMinute")
     private Integer openingMinute;
 
+    @SerializedName("closingMinute")
     private Integer closingMinute;
 
+    @SerializedName("closingHour")
     private Integer closingHour;
 
+    @SerializedName("closed")
     private Boolean closed;
 
-    public ExceptionDate() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getDayOfMonth() {

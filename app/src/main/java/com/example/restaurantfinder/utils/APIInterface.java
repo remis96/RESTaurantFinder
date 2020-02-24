@@ -1,16 +1,18 @@
 package com.example.restaurantfinder.utils;
 
-import com.example.restaurantfinder.model.Restaurant;
+import com.example.restaurantfinder.model.pojo_classes.Restaurant;
 import com.example.restaurantfinder.model.pojo.MultipleResource;
 import com.example.restaurantfinder.model.pojo.User;
 import com.example.restaurantfinder.model.pojo.UserList;
 
-import okhttp3.ResponseBody;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -28,6 +30,10 @@ public interface APIInterface {
     @POST("/api/users?")
     Call<UserList> doCreateUserWithField(@Field("name") String name, @Field("job") String job);
 
+    //restaurants
     @POST("/restaurants/add")
-    Call<ResponseBody> addRestaurant(@Body Restaurant restaurant);
+    Call<String> addRestaurant(@Body Restaurant restaurant, @Header("Authorization") String authHeader);
+
+    @GET("/restaurants/getAll")
+    Call<List<Restaurant>> getAll(@Header("Authorization") String authHeader);
 }

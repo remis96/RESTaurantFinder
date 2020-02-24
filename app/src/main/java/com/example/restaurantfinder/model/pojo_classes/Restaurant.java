@@ -1,28 +1,59 @@
-package com.example.restaurantfinder.model;
+package com.example.restaurantfinder.model.pojo_classes;
 
 import com.example.restaurantfinder.enums.PriceClass;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-import java.util.Set;
 
 public class Restaurant {
 
-    PriceClass priceClass;
-    private Long id;
-    private Integer phoneNumber;
-    private String name;
-    private String city;
-    private String state;
-    private String street;
-    private Double longitude;
-    private Double latitude;
-    private Set<MenuItem> menuItems;
-    private Set<Review> reviews;
-    private List<OpeningHours> openingHours;
-    private List<ExceptionDate> exceptionDates;
+    @SerializedName("priceClass")
+    private PriceClass priceClass;
 
-    public Restaurant() {
-    }
+    @SerializedName("id")
+    @Expose(serialize = false)
+    private Long id;
+
+    @SerializedName("phoneNumber")
+    private Integer phoneNumber;
+
+    @SerializedName("name")
+    private String name;
+
+    @SerializedName("city")
+    private String city;
+
+    @SerializedName("state")
+    private String state;
+
+    @SerializedName("street")
+    private Object street;
+
+    @SerializedName("longitude")
+    private Double longitude;
+
+    @SerializedName("latitude")
+    private Double latitude;
+
+    @SerializedName("hidden")
+    private Boolean hidden;
+
+    @SerializedName("menuItems")
+    @Expose(serialize = false)
+    private List<Object> menuItems = null;
+
+    @SerializedName("reviews")
+    @Expose(serialize = false)
+    private List<Object> reviews = null;
+
+    @SerializedName("openingHours")
+    @Expose(serialize = false)
+    private List<OpeningHours> openingHours = null;
+
+    @SerializedName("exceptionDates")
+    @Expose(serialize = false)
+    private List<Object> exceptionDates = null;
 
     public PriceClass getPriceClass() {
         return priceClass;
@@ -72,11 +103,11 @@ public class Restaurant {
         this.state = state;
     }
 
-    public String getStreet() {
+    public Object getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
+    public void setStreet(Object street) {
         this.street = street;
     }
 
@@ -96,19 +127,27 @@ public class Restaurant {
         this.latitude = latitude;
     }
 
-    public Set<MenuItem> getMenuItems() {
+    public Boolean getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public List<Object> getMenuItems() {
         return menuItems;
     }
 
-    public void setMenuItems(Set<MenuItem> menuItems) {
+    public void setMenuItems(List<Object> menuItems) {
         this.menuItems = menuItems;
     }
 
-    public Set<Review> getReviews() {
+    public List<Object> getReviews() {
         return reviews;
     }
 
-    public void setReviews(Set<Review> reviews) {
+    public void setReviews(List<Object> reviews) {
         this.reviews = reviews;
     }
 
@@ -120,11 +159,12 @@ public class Restaurant {
         this.openingHours = openingHours;
     }
 
-    public List<ExceptionDate> getExceptionDates() {
+    public List<Object> getExceptionDates() {
         return exceptionDates;
     }
 
-    public void setExceptionDates(List<ExceptionDate> exceptionDates) {
+    public void setExceptionDates(List<Object> exceptionDates) {
         this.exceptionDates = exceptionDates;
     }
+
 }

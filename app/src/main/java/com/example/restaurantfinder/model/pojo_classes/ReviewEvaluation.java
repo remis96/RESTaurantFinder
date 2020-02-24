@@ -1,14 +1,19 @@
-package com.example.restaurantfinder.model;
+package com.example.restaurantfinder.model.pojo_classes;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class ReviewEvaluation {
 
+    @SerializedName("id")
+    @Expose(serialize = false)
     private Long id;
+    @SerializedName("helped")
     private Boolean helped;
-    private Review review;
-    private String nameOfUser;
 
-    public ReviewEvaluation() {
-    }
+    @SerializedName("nameOfUser")
+    @Expose(serialize = false)
+    private String nameOfUser;
 
     public Long getId() {
         return id;
@@ -24,14 +29,6 @@ public class ReviewEvaluation {
 
     public void setHelped(Boolean helped) {
         this.helped = helped;
-    }
-
-    public Review getReview() {
-        return review;
-    }
-
-    public void setReview(Review review) {
-        this.review = review;
     }
 
     public String getNameOfUser() {

@@ -3,6 +3,7 @@ package com.example.restaurantfinder.model;
 import com.example.restaurantfinder.enums.TypeOfUser;
 
 public class AppUser {
+
     private String bearerToken;
     private TypeOfUser typeOfUser;
 

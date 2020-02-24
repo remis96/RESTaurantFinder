@@ -1,25 +1,39 @@
-package com.example.restaurantfinder.model;
+package com.example.restaurantfinder.model.pojo_classes;
 
 import com.example.restaurantfinder.enums.PriceClass;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 public class Review {
 
+    @SerializedName("id")
+    @Expose(serialize = false)
     private Long id;
-    private String text;
-    private PriceClass priceClass;
-    private Float rating;
-    private Date dateOfPosting;
-    private boolean hidden;
-    private String user; //dat prec
-    private Restaurant restaurant;
-    private String nameOfUser;
-    private Set<ReviewEvaluation> reviewEvaluations;
 
-    public Review() {
-    }
+    @SerializedName("text")
+    private String text;
+
+    @SerializedName("priceClass")
+    private PriceClass priceClass;
+
+    @SerializedName("rating")
+    private Double rating;
+
+    @SerializedName("dateOfPosting")
+    private String dateOfPosting;
+
+    @SerializedName("hidden")
+    private Boolean hidden;
+
+    @SerializedName("nameOfUser")
+    @Expose(serialize = false)
+    private String nameOfUser;
+
+    @SerializedName("reviewEvaluations")
+    @Expose(serialize = false)
+    private List<ReviewEvaluation> reviewEvaluations = null;
 
     public Long getId() {
         return id;
@@ -45,44 +59,28 @@ public class Review {
         this.priceClass = priceClass;
     }
 
-    public Float getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(Float rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 
-    public Date getDateOfPosting() {
+    public String getDateOfPosting() {
         return dateOfPosting;
     }
 
-    public void setDateOfPosting(Date dateOfPosting) {
+    public void setDateOfPosting(String dateOfPosting) {
         this.dateOfPosting = dateOfPosting;
     }
 
-    public boolean isHidden() {
+    public Boolean getHidden() {
         return hidden;
     }
 
-    public void setHidden(boolean hidden) {
+    public void setHidden(Boolean hidden) {
         this.hidden = hidden;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
     }
 
     public String getNameOfUser() {
@@ -93,11 +91,11 @@ public class Review {
         this.nameOfUser = nameOfUser;
     }
 
-    public Set<ReviewEvaluation> getReviewEvaluations() {
+    public List<ReviewEvaluation> getReviewEvaluations() {
         return reviewEvaluations;
     }
 
-    public void setReviewEvaluations(Set<ReviewEvaluation> reviewEvaluations) {
+    public void setReviewEvaluations(List<ReviewEvaluation> reviewEvaluations) {
         this.reviewEvaluations = reviewEvaluations;
     }
 }

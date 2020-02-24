@@ -1,21 +1,23 @@
-package com.example.restaurantfinder.model;
+package com.example.restaurantfinder.model.pojo_classes;
 
 import com.example.restaurantfinder.enums.MenuItemType;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class MenuItem {
 
+    @SerializedName("itemType")
     private MenuItemType itemType;
 
-    private Float price;
+    @SerializedName("price")
+    private Double price;
 
+    @SerializedName("description")
     private String description;
 
-    private Restaurant restaurant;
-
+    @SerializedName("id")
+    @Expose(serialize = false)
     private Long id;
-
-    public MenuItem() {
-    }
 
     public MenuItemType getItemType() {
         return itemType;
@@ -25,11 +27,11 @@ public class MenuItem {
         this.itemType = itemType;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -39,14 +41,6 @@ public class MenuItem {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
     }
 
     public Long getId() {

@@ -1,23 +1,20 @@
-package com.example.restaurantfinder.model;
+package com.example.restaurantfinder.model.pojo_classes;
 
-import com.google.gson.annotations.Expose;
+import com.example.restaurantfinder.enums.TypeOfUser;
 import com.google.gson.annotations.SerializedName;
 
-public class RegisterDTO {
+public class Register {
+
     @SerializedName("username")
-    @Expose
     private String username;
     @SerializedName("password")
-    @Expose
     private String password;
     @SerializedName("mailAdress")
-    @Expose
     private String mailAdress;
     @SerializedName("typeOfUser")
-    @Expose
-    private String typeOfUser;
+    private TypeOfUser typeOfUser;
 
-    public RegisterDTO(String username, String password, String mailAdress, String typeOfUser) {
+    public Register(String username, String password, String mailAdress, TypeOfUser typeOfUser) {
         this.username = username;
         this.password = password;
         this.mailAdress = mailAdress;
@@ -48,11 +45,11 @@ public class RegisterDTO {
         this.mailAdress = mailAdress;
     }
 
-    public String getTypeOfUser() {
+    public TypeOfUser getTypeOfUser() {
         return typeOfUser;
     }
 
-    public void setTypeOfUser(String typeOfUser) {
+    public void setTypeOfUser(TypeOfUser typeOfUser) {
         this.typeOfUser = typeOfUser;
     }
 
