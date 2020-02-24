@@ -1,6 +1,6 @@
 package com.example.restaurantfinder.model.pojo_classes;
 
-import com.example.restaurantfinder.enums.MenuItemType;
+import com.example.restaurantfinder.model.enums.MenuItemType;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

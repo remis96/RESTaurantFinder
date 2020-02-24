@@ -2,7 +2,7 @@ package com.example.restaurantfinder.model.pojo_classes;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Login {
+public class LoginDTO {
 
     @SerializedName("username")
     private String username;
@@ -10,9 +10,13 @@ public class Login {
     @SerializedName("password")
     private String password;
 
-    public Login(String username, String password) {
+    public LoginDTO(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public LoginDTO() {
+
     }
 
     public String getUsername() {

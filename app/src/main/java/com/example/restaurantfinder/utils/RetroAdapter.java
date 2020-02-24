@@ -73,6 +73,7 @@ public class RetroAdapter extends BaseAdapter {
         holder.state.setText("Country: " + dataModelArrayList.get(position).getState());
         holder.city.setText("City: " + dataModelArrayList.get(position).getCity());
 
+
         return convertView;
 
     }

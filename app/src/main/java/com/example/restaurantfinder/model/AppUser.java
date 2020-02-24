@@ -1,6 +1,6 @@
 package com.example.restaurantfinder.model;
 
-import com.example.restaurantfinder.enums.TypeOfUser;
+import com.example.restaurantfinder.model.enums.TypeOfUser;
 
 public class AppUser {
 

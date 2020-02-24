@@ -1,9 +1,9 @@
 package com.example.restaurantfinder.model.pojo_classes;
 
-import com.example.restaurantfinder.enums.TypeOfUser;
+import com.example.restaurantfinder.model.enums.TypeOfUser;
 import com.google.gson.annotations.SerializedName;
 
-public class Register {
+public class RegisterDTO {
 
     @SerializedName("username")
     private String username;
@@ -14,11 +14,14 @@ public class Register {
     @SerializedName("typeOfUser")
     private TypeOfUser typeOfUser;
 
-    public Register(String username, String password, String mailAdress, TypeOfUser typeOfUser) {
+    public RegisterDTO(String username, String password, String mailAdress, TypeOfUser typeOfUser) {
         this.username = username;
         this.password = password;
         this.mailAdress = mailAdress;
         this.typeOfUser = typeOfUser;
+    }
+
+    public RegisterDTO() {
     }
 
     public String getUsername() {

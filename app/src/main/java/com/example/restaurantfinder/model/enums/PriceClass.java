@@ -1,4 +1,4 @@
-package com.example.restaurantfinder.enums;
+package com.example.restaurantfinder.model.enums;
 
 public enum PriceClass {
     FIRST,

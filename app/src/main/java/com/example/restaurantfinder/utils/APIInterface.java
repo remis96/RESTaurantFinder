@@ -1,9 +1,12 @@
 package com.example.restaurantfinder.utils;
 
+import com.example.restaurantfinder.model.pojo_classes.LoginDTO;
+import com.example.restaurantfinder.model.pojo_classes.RegisterDTO;
 import com.example.restaurantfinder.model.pojo_classes.Restaurant;
 import com.example.restaurantfinder.model.pojo.MultipleResource;
 import com.example.restaurantfinder.model.pojo.User;
 import com.example.restaurantfinder.model.pojo.UserList;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -36,4 +39,11 @@ public interface APIInterface {
 
     @GET("/restaurants/getAll")
     Call<List<Restaurant>> getAll(@Header("Authorization") String authHeader);
+
+    //user managment
+    @POST("/register")
+    Call<RegisterDTO> register(@Body RegisterDTO registerDTO);
+
+    @POST("/authenticate")
+    Call<JsonObject> login(@Body LoginDTO loginDTO);
 }

@@ -13,8 +13,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RESTaurantUtil {
+public class RESTaurantUtilTemplate {
+
     APIInterface apiInterface;
+
 
     public void myTemplateCalls() {
 
@@ -42,7 +44,6 @@ public class RESTaurantUtil {
                 for (Datum datum : datumList) {
                     displayResponse += datum.id + " " + datum.name + " " + datum.pantoneValue + " " + datum.year + "\n";
                 }
-
 
             }
 

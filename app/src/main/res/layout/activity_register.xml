@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/forgotText"
+        android:id="@+id/registerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextMailReset"
+        android:id="@+id/editTextNameRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -25,8 +25,8 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/forgotText"
-        app:layout_constraintTop_toBottomOf="@+id/forgotText" />
+        app:layout_constraintStart_toStartOf="@+id/registerText"
+        app:layout_constraintTop_toBottomOf="@+id/registerText" />
 
     <EditText
         android:id="@+id/editTextMailRegister"
@@ -35,9 +35,9 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Email adress"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextMailReset"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMailReset" />
+        android:inputType="textEmailSubject"
+        app:layout_constraintStart_toStartOf="@+id/editTextNameRegister"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameRegister" />
 
     <Button
         android:id="@+id/registerButton"
@@ -46,8 +46,8 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
         android:text="Register"
-        app:layout_constraintStart_toStartOf="@+id/isAdmin"
-        app:layout_constraintTop_toBottomOf="@+id/isAdmin" />
+        app:layout_constraintStart_toStartOf="@+id/isAdminCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/isAdminCheckBox" />
 
     <EditText
         android:id="@+id/editTextPasswordRegister"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextMailRegister" />
 
     <EditText
-        android:id="@+id/editTextPasswordRepeat"
+        android:id="@+id/editTextPasswordRepeatRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -72,12 +72,22 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRegister" />
 
     <CheckBox
-        android:id="@+id/isAdmin"
+        android:id="@+id/isAdminCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Admin"
-        app:layout_constraintStart_toStartOf="@+id/editTextPasswordRepeat"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRepeat" />
+        app:layout_constraintStart_toStartOf="@+id/editTextPasswordRepeatRegister"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRepeatRegister" />
+
+    <Button
+        android:id="@+id/goToLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

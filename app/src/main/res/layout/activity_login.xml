@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/forgotText"
+        android:id="@+id/loginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -17,35 +17,36 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextMailReset"
+        android:id="@+id/editTextNameLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="144dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/forgotText"
-        app:layout_constraintTop_toBottomOf="@+id/forgotText" />
+        app:layout_constraintStart_toStartOf="@+id/loginText"
+        app:layout_constraintTop_toBottomOf="@+id/loginText" />
 
     <EditText
-        android:id="@+id/editTextMailRegister"
+        android:id="@+id/editTextPasswordLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextMailReset"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMailReset" />
+        app:layout_constraintStart_toStartOf="@+id/editTextNameLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameLogin" />
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:text="Login"
-        app:layout_constraintStart_toStartOf="@+id/editTextMailRegister"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMailRegister" />
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="72dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="@+id/editTextPasswordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordLogin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
