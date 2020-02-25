@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Create"
+        android:textSize="55sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextCreateRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Name of restaurant"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/editTextCreateRestPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Phone"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextCreateRestaurant"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreateRestaurant" />
+
+    <EditText
+        android:id="@+id/editTextCreateMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/editTextCreateRestPhone"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreateRestPhone" />
+
+    <EditText
+        android:id="@+id/editTextCreateCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextCreateMail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreateMail" />
+
+    <EditText
+        android:id="@+id/editTextCreateState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="State"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextCreateCity"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreateCity" />
+
+    <EditText
+        android:id="@+id/editTextCreateStreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Street"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextCreateState"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreateState" />
+
+    <RatingBar
+        android:id="@+id/ratingBarCreatePriceClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/textViewCreateRestaurantPriceClass"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCreateRestaurantPriceClass" />
+
+    <TextView
+        android:id="@+id/textViewCreateRestaurantPriceClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Price class"
+        app:layout_constraintStart_toStartOf="@+id/editTextCreateStreet"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreateStreet" />
+
+    <Button
+        android:id="@+id/buttonCreateReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCreateRestaurantSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

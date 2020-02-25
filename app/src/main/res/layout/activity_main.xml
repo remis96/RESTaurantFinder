@@ -54,4 +54,13 @@
         app:layout_constraintStart_toStartOf="@+id/textViewMainHeader"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainHeader" />
 
+    <Button
+        android:id="@+id/buttonCreateMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Create"
+        app:layout_constraintBottom_toTopOf="@+id/findButtonMain"
+        app:layout_constraintStart_toStartOf="@+id/findButtonMain" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

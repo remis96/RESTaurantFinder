@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RESTaurantFinder</string>
+    <string-array name="menu_item_type_array">
+        <item>Alcohol</item>
+        <item>Food</item>
+        <item>Other</item>
+    </string-array>
 </resources>
