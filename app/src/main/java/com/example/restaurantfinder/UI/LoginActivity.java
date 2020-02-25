@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private LoginDTO loginDTO;
     private APIInterface apiInterface;
-    private Intent intentMainActivity;
+    private Intent intentMainMenu;
     private String bearerToken = null;
 
     @Override
@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        intentMainActivity = new Intent(LoginActivity.this, MainActivity.class);
+        intentMainMenu = new Intent(LoginActivity.this, MainActivity.class);
         initializeComponents();
     }
 
@@ -68,8 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (response.body().has("token")) {
                     bearerToken = response.body().get("token").getAsString();
-                    intentMainActivity.putExtra("token", bearerToken);
-                    LoginActivity.this.startActivity(intentMainActivity);
+                    intentMainMenu.putExtra("token", bearerToken);
+                    LoginActivity.this.startActivity(intentMainMenu);
                 }
             }
 

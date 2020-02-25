@@ -1,25 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".UI.MainActivity">
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textViewMainHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Restaurants"
-        android:textColor="#000"
-        android:textSize="26sp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="RESTaurant finder"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp" />
+    <Button
+        android:id="@+id/loginButtonMain"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="544dp"
+        android:text="Login"
+        app:layout_constraintStart_toStartOf="@+id/textViewMainHeader"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainHeader" />
 
+    <Button
+        android:id="@+id/registerButtonMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="Register"
+        app:layout_constraintStart_toEndOf="@+id/loginButtonMain"
+        app:layout_constraintTop_toTopOf="@+id/loginButtonMain" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/findButtonMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Find"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/registerButtonMain" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="292dp"
+        android:text="Sem neskor random podniky co su blizko"
+        app:layout_constraintStart_toStartOf="@+id/textViewMainHeader"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainHeader" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

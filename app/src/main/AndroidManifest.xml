@@ -28,6 +28,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".UI.LoginActivity"></activity>
+        <activity android:name=".UI.FilterActivity"></activity>
+        <activity android:name=".UI.RestaurantsActivity"></activity>
     </application>
 
 </manifest>

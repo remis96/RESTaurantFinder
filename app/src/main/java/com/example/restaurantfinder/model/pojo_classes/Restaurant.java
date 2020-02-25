@@ -1,6 +1,5 @@
 package com.example.restaurantfinder.model.pojo_classes;
 
-import com.example.restaurantfinder.model.enums.PriceClass;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,7 +8,10 @@ import java.util.List;
 public class Restaurant {
 
     @SerializedName("priceClass")
-    private PriceClass priceClass;
+    private Float priceClass;
+
+    @SerializedName("rating")
+    private Float rating;
 
     @SerializedName("id")
     @Expose(serialize = false)
@@ -28,7 +30,7 @@ public class Restaurant {
     private String state;
 
     @SerializedName("street")
-    private Object street;
+    private String street;
 
     @SerializedName("longitude")
     private Double longitude;
@@ -55,12 +57,20 @@ public class Restaurant {
     @Expose(serialize = false)
     private List<Object> exceptionDates = null;
 
-    public PriceClass getPriceClass() {
-        return priceClass;
+    public void setPriceClass(Float priceClass) {
+        this.priceClass = priceClass;
     }
 
-    public void setPriceClass(PriceClass priceClass) {
-        this.priceClass = priceClass;
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
+
+    public Float getPriceClass() {
+        return priceClass;
     }
 
     public Long getId() {
@@ -107,7 +117,7 @@ public class Restaurant {
         return street;
     }
 
-    public void setStreet(Object street) {
+    public void setStreet(String street) {
         this.street = street;
     }
 

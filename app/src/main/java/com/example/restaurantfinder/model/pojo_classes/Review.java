@@ -1,6 +1,5 @@
 package com.example.restaurantfinder.model.pojo_classes;
 
-import com.example.restaurantfinder.model.enums.PriceClass;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,10 +15,10 @@ public class Review {
     private String text;
 
     @SerializedName("priceClass")
-    private PriceClass priceClass;
+    private Float priceClass;
 
     @SerializedName("rating")
-    private Double rating;
+    private Float rating;
 
     @SerializedName("dateOfPosting")
     private String dateOfPosting;
@@ -51,19 +50,19 @@ public class Review {
         this.text = text;
     }
 
-    public PriceClass getPriceClass() {
+    public Float getPriceClass() {
         return priceClass;
     }
 
-    public void setPriceClass(PriceClass priceClass) {
+    public void setPriceClass(Float priceClass) {
         this.priceClass = priceClass;
     }
 
-    public Double getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(Double rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
     }
 
