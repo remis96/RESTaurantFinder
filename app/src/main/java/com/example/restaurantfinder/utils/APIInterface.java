@@ -38,7 +38,7 @@ public interface APIInterface {
     Call<String> addRestaurant(@Body Restaurant restaurant, @Header("Authorization") String authHeader);
 
     @GET("/restaurants/getAll")
-    Call<List<Restaurant>> getAll(@Header("Authorization") String authHeader);
+    Call<List<Restaurant>> getAll();
 
     //user managment
     @POST("/register")

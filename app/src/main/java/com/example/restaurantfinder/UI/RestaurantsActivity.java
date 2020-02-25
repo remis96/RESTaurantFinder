@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +32,7 @@ public class RestaurantsActivity extends AppCompatActivity {
     String bearerToken = "";
     private Button filterButton;
     private EditText searchInput;
+    private ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +42,15 @@ public class RestaurantsActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv);
         intent = getIntent();
         bearerToken = intent.getStringExtra("token");
+        initialiseComponents();
 
         String token = "Bearer " + bearerToken;
-        Call<List<Restaurant>> call3 = apiInterface.getAll(token);
+        Call<List<Restaurant>> call3 = apiInterface.getAll();
+        setSpinner(true);
         call3.enqueue(new Callback<List<Restaurant>>() {
             @Override
             public void onResponse(Call<List<Restaurant>> call, Response<List<Restaurant>> response) {
+                setSpinner(false);
                 ArrayList<Restaurant> arrayList = (ArrayList<Restaurant>) response.body();
                 list(arrayList);
 
@@ -52,7 +58,10 @@ public class RestaurantsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Restaurant>> call, Throwable t) {
+                setSpinner(false);
+                makeToast("Shit's not working m8");
                 call.cancel();
+
             }
         });
 
@@ -67,6 +76,8 @@ public class RestaurantsActivity extends AppCompatActivity {
     private void initialiseComponents() {
         filterButton = (Button) findViewById(R.id.filterButtonRestaurantsActivity);
         searchInput = (EditText) findViewById(R.id.editTextSearchRestaurantsActivity);
+        spinner = (ProgressBar) findViewById(R.id.progressBarSpinnerRestaurants);
+        spinner.setVisibility(View.GONE);
         setOnClickListeners();
     }
 
@@ -80,5 +91,16 @@ public class RestaurantsActivity extends AppCompatActivity {
         });
     }
 
+    private void makeToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void setSpinner(boolean visible) {
+        if(visible) {
+            spinner.setVisibility(View.VISIBLE);
+        } else {
+            spinner.setVisibility(View.GONE);
+        }
+    }
 
 }
